@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<meta charset="utf-8">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=0.5">
+		<title>ILT Teaser</title>
+		<link rel="stylesheet" href="style.css">
+		<script src="jquery.min.js"></script>
+		<link rel="icon" href="a.ico" type="image/x-icon">
+	</head>
+	<body>
+		<nav>
+			<ul>
+				<li><a href="index.html" style="color:#5957c4;">傳情首頁</a></li>
+				<li><a href="login.html">登入頁面</a></li>
+				<li><a href="register.html">註冊頁面</a></li>
+				<li><a href="about.html">傳情介紹</a></li>
+            </ul>
+		</nav>
+        
+        <form>
+            <div>
+                <h1>Register</h1>
+            </div>
+
+			<div align=center>
+                名稱：<input type="test" id="name">
+            </div>
+
+			<br>
+
+            <div align=center>
+                帳號：<input type="email" id="email">
+            </div>
+
+            <br>
+
+            <div align=center>
+                密碼：<input type="password" id="password">
+            </div>
+
+            <br>
+
+            <div align=center>
+                <div>
+                    <button type="submit" id="submitbtn">註冊</button>
+                </div>
+            </div>
+        </form>   
+
+
+		<hr>
+		<a href target="_top" id="top">移至頁首</a>
+		<address>
+			<sup>&copy;</sup>陳奕丞 <script language="JavaScript">document.write(document.lastModified + " " + "Last update")</script>
+		</address>
+
+		
+		<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase.js"></script>
+		<script>
+		firebase.initializeApp(firebaseConfig);
+		firebase.analytics();
+		</script>
+		<!-- firebase相關操作程式 -->
+		<script>
+			var email = document.getElementById("email");
+			var password = document.getElementById("password");
+			var submitbtn = document.getElementById("submitbtn");
+			submitbtn.addEventListener("click", function(e){
+				e.preventDefault();	
+				firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
+				.then(() =>{
+					var user = firebase.auth().currentUser;
+					user.updateProfile({
+                    	displayName:document.getElementById("name").value
+					});
+					alert("註冊成功");
+					document.getElementById("email").value="";
+					document.getElementById("password").value="";
+					document.getElementById("name").value="";
+					}
+					
+				)
+				.catch((error) => {
+                		alert(error.message);
+					}
+				);
+			})
+		</script>
+	</body>
+</html>

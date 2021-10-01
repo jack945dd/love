@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<meta charset="utf-8">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=0.5">
+		<title>ILT Teaser</title>
+		<link rel="stylesheet" href="style.css">
+		<script src="jquery.min.js"></script>
+		<link rel="icon" href="a.ico" type="image/x-icon">
+	</head>
+	<body>
+		<nav>
+			<ul>
+                <li><a style="color:#5957c4;">訂購人員</a></li>
+                <li><a href="login.html" onclick="logout()">登出系統</a></li>
+				<li><a href="login_after_page1_1.html">訂購商品</a></li>
+				<li><a href="login_after_page1_2.html">誰傳給我</a></li>
+				<li><a href="login_after_page1_3.html">我傳給誰</a></li>
+				<li><a id="userlogin" style="color:#5957c4; border: 1px solid;">無人登入</a></li>
+            </ul>
+        </nav>
+        <table  id="whotable" class="whotable" align=center border=1 rules=all cellpadding='20'>
+				<tr>
+					<th style="background-color: #6b6ac5; color: white; font-size: 25px; font-weight: bolder;">被傳情人</th>
+					<th style="background-color: #6b6ac5; color: white; font-size: 25px; font-weight: bolder;">傳的商品</th>
+					<th style="background-color: #6b6ac5; color: white; font-size: 25px; font-weight: bolder;">你想對他說的話</th>
+				</tr>
+		</table>	
+		<hr>
+		<a href target="_top" id="top">移至頁首</a>
+		<address>
+			<sup>&copy;</sup>陳奕丞 <script language="JavaScript">document.write(document.lastModified + " " + "Last update")</script>
+		
+		</address>
+		<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase.js"></script>
+		<script>
+		
+		firebase.initializeApp(firebaseConfig);
+		firebase.analytics();
+		</script>
+		<script>
+			var user = firebase.auth().currentUser;
+			firebase.auth().onAuthStateChanged(function(user){
+				if (user) {
+					document.getElementById("userlogin").innerHTML = user.displayName+"登入";
+				}
+				else {
+					document.getElementById("userlogin").innerHTML = "無人登入";
+				}
+			});
+			function logout(){
+			
+				firebase.auth().signOut().then(function() {
+                alert('你已成功登出');
+				var user = firebase.auth().currentUser;
+				alert(user.displayName);
+
+            })
+        }
+		</script>
+		<script>
+			var db = firebase.database();
+			
+			db.ref("單號到哪/單號到哪").once('value', function (snapshot) {
+						var data = snapshot.val();
+						function f2(){
+						for(var i = 1; i <= data; i++) {
+							(function(e) {
+								setTimeout(function() {
+
+									var path = "snapshot/"+e+"/傳情人";
+									db.ref(`/${path}`).once('value', function (snapshot) {
+										var data = snapshot.val();
+										var aa="zzz";
+										var bb="";
+										var cc="";
+										var dd="";
+										if(data == firebase.auth().currentUser.displayName){
+											var path = "snapshot/"+e+"/被傳情人";
+											db.ref(`/${path}`).once('value', function (snapshot) {
+												var data = snapshot.val();
+												aa = data;
+												var path = "snapshot/"+e+"/商品";
+												db.ref(`/${path}`).once('value', function (snapshot) {
+													var data = snapshot.val();
+													bb = data;
+													var path = "snapshot/"+e+"/想說的話";
+													db.ref(`/${path}`).once('value', function (snapshot) {
+														var data = snapshot.val();
+														cc = data;
+														dd = "<tr align=center style='font-size: 25px; font-weight: bolder;'><td>"+aa+"</td><td>"+bb+"</td><td>"+cc+"</td></tr>";
+														document.getElementById("whotable").innerHTML+= dd;
+													});
+												});
+											});
+											
+										/* 	var path = "snapshot/1";
+											db.ref(`/${path}`).once('value', function (snapshot) {
+														var data = snapshot.val();
+														console.log(data.傳情人);
+													}); */
+										}
+									});									
+								}, 1000);
+							})(i);
+						}
+						}
+						f2();
+					}
+					);
+
+		</script>
+	</body>
+</html>

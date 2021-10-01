@@ -1,0 +1,99 @@
+body{
+	width: 90%;	/*整體版面寬度*/
+	margin: 10px auto;	/*整體版面置中 上下間距10px*/
+	font-family:Arial, Microsoft JhengHei;	/*字體*/
+	letter-spacing: 1.5px;	/*字符間距*/
+	background-color: aliceblue;	/*背景顏色*/
+}
+nav ul{
+	list-style: none;	/*移除項目符號*/
+	padding-left: 0;	/*移除ul本身的左內距*/
+	background-color: ghostwhite;	/*背景顏色*/
+	border: 2px solid rgb(43, 27, 112);	/*外框*/
+	border-radius: 10px;	/*外框圓角*/
+}
+nav ul li{
+	display: inline-block;	/*把li便橫的*/
+	text-align: center;	/*左右置中*/
+	vertical-align: middle; /*上下置中*/
+	font-size: 30px;	/*字體大小*/
+	width: 12%;	/*li寬度*/
+	padding-top: 5px;	/*上內距*/
+	padding-bottom: 5px;	/*下內距*/
+}
+nav ul li a{
+	text-decoration: none;	/*移除底線*/
+	font-weight:bolder;	/*加粗*/
+}
+nav ul li a:link{color:#000;}	/*初始字體顏色*/
+nav ul li a:visited{color:#000;}	/*點選過後字體顏色*/
+nav ul li a:hover{color:#147bdb;}	/*滑過時換顏色*/
+nav ul li a:active{color:#666;}	/*點選時的顏色*/
+nav ul .outlinks{
+	width:4%;	/*li寬度*/
+}
+/*右下按鍵*/
+#top{
+	float: right;  /*放到最右邊*/
+	text-decoration: none;	/*底線*/
+	color: #9C9C9C;	/*字體顏色*/
+	font-size: 16px;	/*字體大小*/
+}
+form{
+	background-color: rgb(228, 228, 228);	/*FORM背景顏色*/
+	border-radius: 5px;	/*圓角*/
+	width: 700px;	/*區塊寬度*/
+	margin: 0% auto;	/*置中*/
+	font-size: 20px;	/*文字大小*/
+	font-weight: bolder;	/*加粗*/
+}
+form div h1{
+	text-align: center;	/*置中*/
+	border-radius: 5px;	/*圓角*/
+	background-color:rgb(104, 178, 240);	/*背景顏色*/
+	color: white;	/*文字顏色*/
+	padding-top: 5px;	/*上內距*/
+	padding-bottom: 5px;	/*下內距*/
+}
+div div button{
+	margin: 10px 10px;	/*按鈕外距*/
+	font-weight: bolder;	/*加粗*/
+	padding: 5px 10px;	/*按鈕內距*/
+	font-size: 20px;	/*文字大小*/
+	width: 150px;
+	height: 50px;
+}
+form div input{
+	font-size: 20px;	/*文字大小*/
+	font-weight: bolder;	/*加粗*/
+}
+form div select{
+	font-size: 20px;	/*文字大小*/
+	font-weight: bolder;	/*加粗*/
+}
+.specdiv{
+	width: 20%;
+	display: inline-block;
+	border: 1px solid;
+	margin: 10px;
+	padding: 10px;
+	background-color: rgb(220, 228, 230);
+}
+div div img{
+	width: 70%;
+}
+input{
+	height: 30px;
+}
+.whotable{
+	width: 80%;
+	background-color: rgb(219, 219, 219);
+}
+button{
+	margin: 10px 10px;	/*按鈕外距*/
+	font-weight: bolder;	/*加粗*/
+	padding: 5px 10px;	/*按鈕內距*/
+	font-size: 20px;	/*文字大小*/
+	width: 150px;
+	height: 50px;
+}

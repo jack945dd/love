@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+	<meta charset="utf-8">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=0.5">
+		<title>ILT Teaser</title>
+		<link rel="stylesheet" href="style.css">
+		<script src="jquery.min.js"></script>
+		<link rel="icon" href="a.ico" type="image/x-icon">
+	</head>
+	<body>
+		<nav>
+			<ul>
+                <li><a style="color:#5957c4;">管理人員</a></li>
+                <li><a href="login.html" onclick="logout()">登出系統</a></li>
+				<li><a href="login_after_page2_1.html">統計訂單</a></li>
+				<li><a href="login_after_page2_2.html">修刪訂單</a></li>
+				<li><a id="userlogin" style="color:#5957c4; border: 1px solid;">無人登入</a></li>
+            </ul>
+        </nav>
+		<table  id="whotable" class="whotable" align=center border=1 rules=all cellpadding='20' style="width: 70%;">
+			<tr>
+				<th style="background-color: #6b6ac5; color: white; font-size: 25px; font-weight: bolder;">傳情商品</th>
+				<th style="background-color: #6b6ac5; color: white; font-size: 25px; font-weight: bolder;">訂購數量</th>
+				<th style="background-color: #6b6ac5; color: white; font-size: 25px; font-weight: bolder;">喜歡人數</th>
+				<th style="background-color: #6b6ac5; color: white; font-size: 25px; font-weight: bolder;">討厭人數</th>
+			</tr>
+			<tr>
+				<td align=center style="font-size: 25px; font-weight: bolder;">
+					<img src="s1.jpeg" width="150px">草莓蛋糕
+				</td>
+				<td align=center style="font-size: 25px; font-weight: bolder;" id="d1">數量</td>
+				<td align=center style="font-size: 25px; font-weight: bolder;" id="l1">數量</td>
+				<td align=center style="font-size: 25px; font-weight: bolder;" id="u1">數量</td>
+			</tr>
+			<tr>
+				<td align=center style="font-size: 25px; font-weight: bolder;">
+					<img src="s2.jpeg" width="150px">馬糞蛋糕
+				</td>
+				<td align=center style="font-size: 25px; font-weight: bolder;" id="d2">數量</td>
+				<td align=center style="font-size: 25px; font-weight: bolder;" id="l2">數量</td>
+				<td align=center style="font-size: 25px; font-weight: bolder;" id="u2">數量</td>
+			</tr>
+			<tr>
+				<td align=center style="font-size: 25px; font-weight: bolder;">
+					<img src="s3.jpeg" width="150px">大蒜蛋糕
+				</td>
+				<td align=center style="font-size: 25px; font-weight: bolder;" id="d3">數量</td>
+				<td align=center style="font-size: 25px; font-weight: bolder;" id="l3">數量</td>
+				<td align=center style="font-size: 25px; font-weight: bolder;" id="u3">數量</td>
+				
+			</tr>
+			<tr>
+				<td align=center style="font-size: 25px; font-weight: bolder;">
+					<img src="s4.jpeg" width="150px">波羅麵包
+				</td>
+				<td align=center style="font-size: 25px; font-weight: bolder;" id="d4">數量</td>
+				<td align=center style="font-size: 25px; font-weight: bolder;" id="l4">數量</td>
+				<td align=center style="font-size: 25px; font-weight: bolder;" id="u4">數量</td>
+			</tr>
+			<tr>
+				<td align=center style="font-size: 25px; font-weight: bolder;">
+					<img src="s5.jpeg" width="150px">流星波羅
+				</td>
+				<td align=center style="font-size: 25px; font-weight: bolder;" id="d5">數量</td>
+				<td align=center style="font-size: 25px; font-weight: bolder;" id="l5">數量</td>
+				<td align=center style="font-size: 25px; font-weight: bolder;" id="u5">數量</td>
+			</tr>
+			<tr>
+				<td align=center style="font-size: 25px; font-weight: bolder;">
+					<img src="s6.jpeg" width="150px">起司流沙
+				</td>
+				<td align=center style="font-size: 25px; font-weight: bolder;" id="d6">數量</td>
+				<td align=center style="font-size: 25px; font-weight: bolder;" id="l6">數量</td>
+				<td align=center style="font-size: 25px; font-weight: bolder;" id="u6">數量</td>
+			</tr>
+			<tr>
+				<td align=center style="font-size: 25px; font-weight: bolder;">
+					<img src="s7.jpeg" width="150px">黑色蛋蛋
+				</td>
+				<td align=center style="font-size: 25px; font-weight: bolder;" id="d7">數量</td>
+				<td align=center style="font-size: 25px; font-weight: bolder;" id="l7">數量</td>
+				<td align=center style="font-size: 25px; font-weight: bolder;" id="u7">數量</td>
+			</tr>
+			<tr>
+				<td align=center style="font-size: 25px; font-weight: bolder;">
+					<img src="s8.jpeg" width="150px">牛奶流沙
+				</td>
+				<td align=center style="font-size: 25px; font-weight: bolder;" id="d8">數量</td>
+				<td align=center style="font-size: 25px; font-weight: bolder;" id="l8">數量</td>
+				<td align=center style="font-size: 25px; font-weight: bolder;" id="u8">數量</td>
+			</tr>
+		</table>
+		<hr>
+		<a href target="_top" id="top">移至頁首</a>
+		<address>
+			<sup>&copy;</sup>陳奕丞 <script language="JavaScript">document.write(document.lastModified + " " + "Last update")</script>
+		
+		</address>
+		<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase.js"></script>
+		<script>
+		
+		firebase.initializeApp(firebaseConfig);
+		firebase.analytics();
+		</script>
+		<script>
+			var user = firebase.auth().currentUser;
+			firebase.auth().onAuthStateChanged(function(user){
+				if (user) {
+					document.getElementById("userlogin").innerHTML = user.displayName+"登入";
+				}
+				else {
+					document.getElementById("userlogin").innerHTML = "無人登入";
+				}
+			});
+			function logout(){
+			
+				firebase.auth().signOut().then(function() {
+                alert('你已成功登出');
+				var user = firebase.auth().currentUser;
+				alert(user.displayName);
+
+            })
+        }
+		</script>
+		<script>
+			var db = firebase.database();
+
+			db.ref("amount/a").once('value', function (snapshot) {
+				var data = snapshot.val();
+				document.getElementById("d1").innerText = data+"份";
+			});
+			db.ref("amount/b").once('value', function (snapshot) {
+				var data = snapshot.val();
+				document.getElementById("d2").innerText = data+"份";
+			});
+			db.ref("amount/c").once('value', function (snapshot) {
+				var data = snapshot.val();
+				document.getElementById("d3").innerText = data+"份";
+			});
+			db.ref("amount/d").once('value', function (snapshot) {
+				var data = snapshot.val();
+				document.getElementById("d4").innerText = data+"份";
+			});
+			db.ref("amount/e").once('value', function (snapshot) {
+				var data = snapshot.val();
+				document.getElementById("d5").innerText = data+"份";
+			});
+			db.ref("amount/f").once('value', function (snapshot) {
+				var data = snapshot.val();
+				document.getElementById("d6").innerText = data+"份";
+			});
+			db.ref("amount/g").once('value', function (snapshot) {
+				var data = snapshot.val();
+				document.getElementById("d7").innerText = data+"份";
+			});
+			db.ref("amount/h").once('value', function (snapshot) {
+				var data = snapshot.val();
+				document.getElementById("d8").innerText = data+"份";
+			});
+		</script>
+
+		<script>
+			var db = firebase.database();
+
+			db.ref("like/a/yes").once('value', function (snapshot) {
+				var data = snapshot.val();
+				document.getElementById("l1").innerText = data+"次";
+			});
+			db.ref("like/b/yes").once('value', function (snapshot) {
+				var data = snapshot.val();
+				document.getElementById("l2").innerText = data+"次";
+			});
+			db.ref("like/c/yes").once('value', function (snapshot) {
+				var data = snapshot.val();
+				document.getElementById("l3").innerText = data+"次";
+			});
+			db.ref("like/d/yes").once('value', function (snapshot) {
+				var data = snapshot.val();
+				document.getElementById("l4").innerText = data+"次";
+			});
+			db.ref("like/e/yes").once('value', function (snapshot) {
+				var data = snapshot.val();
+				document.getElementById("l5").innerText = data+"次";
+			});
+			db.ref("like/f/yes").once('value', function (snapshot) {
+				var data = snapshot.val();
+				document.getElementById("l6").innerText = data+"次";
+			});
+			db.ref("like/g/yes").once('value', function (snapshot) {
+				var data = snapshot.val();
+				document.getElementById("l7").innerText = data+"次";
+			});
+			db.ref("like/h/yes").once('value', function (snapshot) {
+				var data = snapshot.val();
+				document.getElementById("l8").innerText = data+"次";
+			});
+		</script>
+		<script>
+			var db = firebase.database();
+
+			db.ref("like/a/no").once('value', function (snapshot) {
+				var data = snapshot.val();
+				document.getElementById("u1").innerText = data+"次";
+			});
+			db.ref("like/b/no").once('value', function (snapshot) {
+				var data = snapshot.val();
+				document.getElementById("u2").innerText = data+"次";
+			});
+			db.ref("like/c/no").once('value', function (snapshot) {
+				var data = snapshot.val();
+				document.getElementById("u3").innerText = data+"次";
+			});
+			db.ref("like/d/no").once('value', function (snapshot) {
+				var data = snapshot.val();
+				document.getElementById("u4").innerText = data+"次";
+			});
+			db.ref("like/e/no").once('value', function (snapshot) {
+				var data = snapshot.val();
+				document.getElementById("u5").innerText = data+"次";
+			});
+			db.ref("like/f/no").once('value', function (snapshot) {
+				var data = snapshot.val();
+				document.getElementById("u6").innerText = data+"次";
+			});
+			db.ref("like/g/no").once('value', function (snapshot) {
+				var data = snapshot.val();
+				document.getElementById("u7").innerText = data+"次";
+			});
+			db.ref("like/h/no").once('value', function (snapshot) {
+				var data = snapshot.val();
+				document.getElementById("u8").innerText = data+"次";
+			});
+		</script>
+		
+	</body>
+</html>

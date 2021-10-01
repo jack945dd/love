@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+	<meta charset="utf-8">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=0.5">
+		<title>ILT Teaser</title>
+		<link rel="stylesheet" href="style.css">
+		<script src="jquery.min.js"></script>
+		<link rel="icon" href="a.ico" type="image/x-icon">
+	</head>
+	<body>
+		<nav>
+			<ul>
+                <li><a style="color:#5957c4;">訂購人員</a></li>
+                <li><a href="login.html" onclick="logout()">登出系統</a></li>
+				<li><a href="login_after_page1_1.html">訂購商品</a></li>
+				<li><a href="login_after_page1_2.html">誰傳給我</a></li>
+				<li><a href="login_after_page1_3.html">我傳給誰</a></li>
+				<li><a id="userlogin" style="color:#5957c4; border: 1px solid;">無人登入</a></li>
+            </ul>
+        </nav>
+		
+		<div align=center>
+			<div class="specdiv">
+				<img src="s1.jpeg"><br>
+				<h1>a.草莓蛋糕</h1>
+				<img src="ha.png" style="width: 20%;display: inline-block;" onclick="add('a')">
+				<h1 style="width: 20%;display: inline-block;font-size: 50px;" id="l1">數量</h1>
+				<img src="angry.png" style="width: 20%;display: inline-block;" onclick="min('a')">
+				<h1 style="width: 20%;display: inline-block;font-size: 50px;" id="u1">數量</h1><br>
+				<b>傳給誰：</b><input id="n1">
+				<br><br><b>想說的話：</b><input id="s1">
+				<button onclick="buy('a')">訂購</button>
+			</div>
+			<div class="specdiv">
+				<img src="s2.jpeg"><br>
+				<h1>b.馬糞蛋糕</h1>
+				<img src="ha.png" style="width: 20%;display: inline-block;" onclick="add('b')">
+				<h1 style="width: 20%;display: inline-block;font-size: 50px;" id="l2">數量</h1>
+				<img src="angry.png" style="width: 20%;display: inline-block;" onclick="min('b')">
+				<h1 style="width: 20%;display: inline-block;font-size: 50px;" id="u2">數量</h1><br>
+				<b>傳給誰：</b><input id="n2">
+				<br><br><b>想說的話：</b><input id="s2">
+				<button onclick="buy('b')">訂購</button>
+			</div>
+			<div class="specdiv">
+				<img src="s3.jpeg"><br>
+				<h1>c.大蒜蛋糕</h1>
+				<img src="ha.png" style="width: 20%;display: inline-block;" onclick="add('c')">
+				<h1 style="width: 20%;display: inline-block;font-size: 50px;" id="l3">數量</h1>
+				<img src="angry.png" style="width: 20%;display: inline-block;" onclick="min('c')">
+				<h1 style="width: 20%;display: inline-block;font-size: 50px;" id="u3">數量</h1><br>
+				<b>傳給誰：</b><input id="n3">
+				<br><br><b>想說的話：</b><input id="s3">
+				<button onclick="buy('c')">訂購</button>
+			</div>
+			<div class="specdiv">
+				<img src="s4.jpeg"><br>
+				<h1>d.波羅麵包</h1>
+				<img src="ha.png" style="width: 20%;display: inline-block;" onclick="add('d')">
+				<h1 style="width: 20%;display: inline-block;font-size: 50px;" id="l4">數量</h1>
+				<img src="angry.png" style="width: 20%;display: inline-block;" onclick="min('d')">
+				<h1 style="width: 20%;display: inline-block;font-size: 50px;" id="u4">數量</h1><br>
+				<b>傳給誰：</b><input id="n4">
+				<br><br><b>想說的話：</b><input id="s4">
+				<button onclick="buy('d')">訂購</button>
+			</div>
+		</div>
+		<div align=center>
+			<div class="specdiv">
+				<img src="s5.jpeg"><br>
+				<h1>e.流星波羅</h1>
+				<img src="ha.png" style="width: 20%;display: inline-block;" onclick="add('e')">
+				<h1 style="width: 20%;display: inline-block;font-size: 50px;" id="l5">數量</h1>
+				<img src="angry.png" style="width: 20%;display: inline-block;" onclick="min('e')">
+				<h1 style="width: 20%;display: inline-block;font-size: 50px;" id="u5">數量</h1><br>
+				<b>傳給誰：</b><input id="n5">
+				<br><br><b>想說的話：</b><input id="s5">
+				<button onclick="buy('e')">訂購</button>
+			</div>
+			<div class="specdiv">
+				<img src="s6.jpeg"><br>
+				<h1>f.起司流沙</h1>
+				<img src="ha.png" style="width: 20%;display: inline-block;" onclick="add('f')">
+				<h1 style="width: 20%;display: inline-block;font-size: 50px;" id="l6">數量</h1>
+				<img src="angry.png" style="width: 20%;display: inline-block;" onclick="min('f')">
+				<h1 style="width: 20%;display: inline-block;font-size: 50px;" id="u6">數量</h1><br>
+				<b>傳給誰：</b><input id="n6">
+				<br><br><b>想說的話：</b><input id="s6">
+				<button onclick="buy('f')">訂購</button>
+			</div>
+			<div class="specdiv">
+				<img src="s7.jpeg"><br>
+				<h1>g.黑色蛋蛋</h1>
+				<img src="ha.png" style="width: 20%;display: inline-block;" onclick="add('g')">
+				<h1 style="width: 20%;display: inline-block;font-size: 50px;" id="l7">數量</h1>
+				<img src="angry.png" style="width: 20%;display: inline-block;" onclick="min('g')">
+				<h1 style="width: 20%;display: inline-block;font-size: 50px;" id="u7">數量</h1><br>
+				<b>傳給誰：</b><input id="n7">
+				<br><br><b>想說的話：</b><input id="s7">
+				<button onclick="buy('g')">訂購</button>
+			</div>
+			<div class="specdiv">
+				<img src="s8.jpeg"><br>
+				<h1>h.牛奶流沙</h1>
+				<img src="ha.png" style="width: 20%;display: inline-block;" onclick="add('h')">
+				<h1 style="width: 20%;display: inline-block;font-size: 50px;" id="l8">數量</h1>
+				<img src="angry.png" style="width: 20%;display: inline-block;" onclick="min('h')">
+				<h1 style="width: 20%;display: inline-block;font-size: 50px;" id="u8">數量</h1><br>
+				<b>傳給誰：</b><input id="n8">
+				<br><br><b>想說的話：</b><input id="s8">
+				<button onclick="buy('h')">訂購</button>
+			</div>
+		</div>
+		<div style='clear:both;'></div>
+
+		<hr>
+		<a href target="_top" id="top">移至頁首</a>
+		<address>
+			<sup>&copy;</sup>陳奕丞 <script language="JavaScript">document.write(document.lastModified + " " + "Last update")</script>
+		
+		</address>
+		<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase.js"></script>
+		<script>
+		
+		firebase.initializeApp(firebaseConfig);
+		firebase.analytics();
+		</script>
+		<script>
+			var user = firebase.auth().currentUser;
+			firebase.auth().onAuthStateChanged(function(user){
+				if (user) {
+					document.getElementById("userlogin").innerHTML = user.displayName+"登入";
+				}
+				else {
+					document.getElementById("userlogin").innerHTML = "無人登入";
+				}
+			});
+			function logout(){
+			
+				firebase.auth().signOut().then(function() {
+                alert('你已成功登出');
+				var user = firebase.auth().currentUser;
+				alert(user.displayName);
+
+            })
+        }
+		</script>
+		<Script>
+			var db = firebase.database();
+			function buy(e) {
+				if(e == "a"){
+					alert("訂購了a");
+					db.ref("amount/a").once('value', function (snapshot) {
+						var data = snapshot.val();
+						data = data + 1;
+						db.ref("/amount").update({
+							a: data
+						});
+					});
+					db.ref("單號到哪/單號到哪").once('value', function (snapshot) {
+						var data = snapshot.val();
+						data = data + 1;
+						var path = "sheet/";
+						db.ref("單號到哪").update({
+							單號到哪: data
+						});
+						var path = "snapshot/"+data;
+						var aa = firebase.auth().currentUser.displayName;
+						var bb = document.getElementById("n1").value;
+						var cc = document.getElementById("s1").value;
+						db.ref(`/${path}`).update({
+							傳情人: aa,
+							商品: e,
+							被傳情人: bb,
+							想說的話: cc
+						});
+					});
+					
+				}
+				if(e == "b"){
+					alert("訂購了b");
+					db.ref("amount/b").once('value', function (snapshot) {
+						var data = snapshot.val();
+						data = data + 1;
+						db.ref("/amount").update({
+							b: data
+						});
+					});
+					db.ref("單號到哪/單號到哪").once('value', function (snapshot) {
+						var data = snapshot.val();
+						data = data + 1;
+						var path = "sheet/";
+						db.ref("單號到哪").update({
+							單號到哪: data
+						});
+						var path = "snapshot/"+data;
+						var aa = firebase.auth().currentUser.displayName;
+						var bb = document.getElementById("n2").value;
+						var cc = document.getElementById("s2").value;
+						db.ref(`/${path}`).update({
+							傳情人: aa,
+							商品: e,
+							被傳情人: bb,
+							想說的話: cc
+							
+						});
+					});
+				}
+				if(e == "c"){
+					alert("訂購了c");
+					db.ref("amount/c").once('value', function (snapshot) {
+						var data = snapshot.val();
+						data = data + 1;
+						db.ref("/amount").update({
+							c: data
+						});
+					});
+					db.ref("單號到哪/單號到哪").once('value', function (snapshot) {
+						var data = snapshot.val();
+						data = data + 1;
+						var path = "sheet/";
+						db.ref("單號到哪").update({
+							單號到哪: data
+						});
+						var path = "snapshot/"+data;
+						var aa = firebase.auth().currentUser.displayName;
+						var bb = document.getElementById("n3").value;
+						var cc = document.getElementById("s3").value;
+						db.ref(`/${path}`).update({
+							傳情人: aa,
+							商品: e,
+							被傳情人: bb,
+							想說的話: cc
+							
+						});
+					});
+				}
+				if(e == "d"){
+					alert("訂購了d");
+					db.ref("amount/d").once('value', function (snapshot) {
+						var data = snapshot.val();
+						data = data + 1;
+						db.ref("/amount").update({
+							d: data
+						});
+					});
+					db.ref("單號到哪/單號到哪").once('value', function (snapshot) {
+						var data = snapshot.val();
+						data = data + 1;
+						var path = "sheet/";
+						db.ref("單號到哪").update({
+							單號到哪: data
+						});
+						var path = "snapshot/"+data;
+						var aa = firebase.auth().currentUser.displayName;
+						var bb = document.getElementById("n4").value;
+						var cc = document.getElementById("s4").value;
+						db.ref(`/${path}`).update({
+							傳情人: aa,
+							商品: e,
+							被傳情人: bb,
+							想說的話: cc
+							
+						});
+					});
+				}
+				if(e == "e"){
+					alert("訂購了e");
+					db.ref("amount/e").once('value', function (snapshot) {
+						var data = snapshot.val();
+						data = data + 1;
+						db.ref("/amount").update({
+							e: data
+						});
+					});
+					db.ref("單號到哪/單號到哪").once('value', function (snapshot) {
+						var data = snapshot.val();
+						data = data + 1;
+						var path = "sheet/";
+						db.ref("單號到哪").update({
+							單號到哪: data
+						});
+						var path = "snapshot/"+data;
+						var aa = firebase.auth().currentUser.displayName;
+						var bb = document.getElementById("n5").value;
+						var cc = document.getElementById("s5").value;
+						db.ref(`/${path}`).update({
+							傳情人: aa,
+							商品: e,
+							被傳情人: bb,
+							想說的話: cc
+							
+						});
+					});
+				}
+				if(e == "f"){
+					alert("訂購了f");
+					db.ref("amount/f").once('value', function (snapshot) {
+						var data = snapshot.val();
+						data = data + 1;
+						db.ref("/amount").update({
+							f: data
+						});
+					});
+					db.ref("單號到哪/單號到哪").once('value', function (snapshot) {
+						var data = snapshot.val();
+						data = data + 1;
+						var path = "sheet/";
+						db.ref("單號到哪").update({
+							單號到哪: data
+						});
+						var path = "snapshot/"+data;
+						var aa = firebase.auth().currentUser.displayName;
+						var bb = document.getElementById("n6").value;
+						var cc = document.getElementById("s6").value;
+						db.ref(`/${path}`).update({
+							傳情人: aa,
+							商品: e,
+							被傳情人: bb,
+							想說的話: cc
+							
+						});
+					});
+				}
+				if(e == "g"){
+					alert("訂購了g");
+					db.ref("amount/g").once('value', function (snapshot) {
+						var data = snapshot.val();
+						data = data + 1;
+						db.ref("/amount").update({
+							g: data
+						});
+					});
+					db.ref("單號到哪/單號到哪").once('value', function (snapshot) {
+						var data = snapshot.val();
+						data = data + 1;
+						var path = "sheet/";
+						db.ref("單號到哪").update({
+							單號到哪: data
+						});
+						var path = "snapshot/"+data;
+						var aa = firebase.auth().currentUser.displayName;
+						var bb = document.getElementById("n7").value;
+						var cc = document.getElementById("s7").value;
+						db.ref(`/${path}`).update({
+							傳情人: aa,
+							商品: e,
+							被傳情人: bb,
+							想說的話: cc
+							
+						});
+					});
+				}
+				if(e == "h"){
+					alert("訂購了h");
+					db.ref("amount/h").once('value', function (snapshot) {
+						var data = snapshot.val();
+						data = data + 1;
+						db.ref("/amount").update({
+							h: data
+						});
+					});
+					db.ref("單號到哪/單號到哪").once('value', function (snapshot) {
+						var data = snapshot.val();
+						data = data + 1;
+						var path = "sheet/";
+						db.ref("單號到哪").update({
+							單號到哪: data
+						});
+						var path = "snapshot/"+data;
+						var aa = firebase.auth().currentUser.displayName;
+						var bb = document.getElementById("n8").value;
+						var cc = document.getElementById("s8").value;
+						db.ref(`/${path}`).update({
+							傳情人: aa,
+							商品: e,
+							被傳情人: bb,
+							想說的話: cc
+							
+						});
+					});
+				}
+			}
+		</Script>
+		<script>
+			var db = firebase.database();
+			function aa(){
+				db.ref("like/a/yes").once('value', function (snapshot) {
+				var data = snapshot.val();
+				document.getElementById("l1").innerText = data;
+				});
+				db.ref("like/b/yes").once('value', function (snapshot) {
+					var data = snapshot.val();
+					document.getElementById("l2").innerText = data;
+				});
+				db.ref("like/c/yes").once('value', function (snapshot) {
+					var data = snapshot.val();
+					document.getElementById("l3").innerText = data;
+				});
+				db.ref("like/d/yes").once('value', function (snapshot) {
+					var data = snapshot.val();
+					document.getElementById("l4").innerText = data;
+				});
+				db.ref("like/e/yes").once('value', function (snapshot) {
+					var data = snapshot.val();
+					document.getElementById("l5").innerText = data;
+				});
+				db.ref("like/f/yes").once('value', function (snapshot) {
+					var data = snapshot.val();
+					document.getElementById("l6").innerText = data;
+				});
+				db.ref("like/g/yes").once('value', function (snapshot) {
+					var data = snapshot.val();
+					document.getElementById("l7").innerText = data;
+				});
+				db.ref("like/h/yes").once('value', function (snapshot) {
+					var data = snapshot.val();
+					document.getElementById("l8").innerText = data;
+				});
+				db.ref("like/a/no").once('value', function (snapshot) {
+				var data = snapshot.val();
+				document.getElementById("u1").innerText = data;
+				});
+				db.ref("like/b/no").once('value', function (snapshot) {
+					var data = snapshot.val();
+					document.getElementById("u2").innerText = data;
+				});
+				db.ref("like/c/no").once('value', function (snapshot) {
+					var data = snapshot.val();
+					document.getElementById("u3").innerText = data;
+				});
+				db.ref("like/d/no").once('value', function (snapshot) {
+					var data = snapshot.val();
+					document.getElementById("u4").innerText = data;
+				});
+				db.ref("like/e/no").once('value', function (snapshot) {
+					var data = snapshot.val();
+					document.getElementById("u5").innerText = data;
+				});
+				db.ref("like/f/no").once('value', function (snapshot) {
+					var data = snapshot.val();
+					document.getElementById("u6").innerText = data;
+				});
+				db.ref("like/g/no").once('value', function (snapshot) {
+					var data = snapshot.val();
+					document.getElementById("u7").innerText = data;
+				});
+				db.ref("like/h/no").once('value', function (snapshot) {
+					var data = snapshot.val();
+					document.getElementById("u8").innerText = data;
+				});
+			}
+			aa();
+			
+
+			function add(who){
+				var path = "like/"+who+"/yes";
+				db.ref(`/${path}`).once('value', function (snapshot) {
+					var data = snapshot.val();
+					data = data + 1;
+					var path = "like/"+who;
+					db.ref(`/${path}`).update({
+						yes: data
+					});
+					aa();
+				});
+			}
+			function min(who){
+				var path = "like/"+who+"/no";
+				db.ref(`/${path}`).once('value', function (snapshot) {
+					var data = snapshot.val();
+					data = data + 1;
+					var path = "like/"+who;
+					db.ref(`/${path}`).update({
+						no: data
+					});
+					aa();
+				});
+			}
+
+		</script>
+	</body>
+</html>

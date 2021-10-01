@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+	<meta charset="utf-8">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=0.5">
+		<title>ILT Teaser</title>
+		<link rel="stylesheet" href="style.css">
+		<script src="jquery.min.js"></script>
+		<link rel="icon" href="a.ico" type="image/x-icon">
+	</head>
+	<body>
+		<nav>
+			<ul>
+                <li><a style="color:#5957c4;">管理人員</a></li>
+                <li><a href="login.html" onclick="logout()">登出系統</a></li>
+				<li><a href="login_after_page2_1.html">統計訂單</a></li>
+				<li><a href="login_after_page2_2.html">修刪訂單</a></li>
+				<li><a id="userlogin" style="color:#5957c4; border: 1px solid;">無人登入</a></li>
+            </ul>
+        </nav>
+        <table  id="whotable" class="whotable" align=center border=1 rules=all cellpadding='20'>
+			<tr>
+				<th style="background-color: #6b6ac5; color: white; font-size: 25px; font-weight: bolder;">訂單</th>
+				<th style="background-color: #6b6ac5; color: white; font-size: 25px; font-weight: bolder;">傳情人</th>
+				<th style="background-color: #6b6ac5; color: white; font-size: 25px; font-weight: bolder;">商品</th>
+				<th style="background-color: #6b6ac5; color: white; font-size: 25px; font-weight: bolder;">想說的話</th>
+				<th style="background-color: #6b6ac5; color: white; font-size: 25px; font-weight: bolder;">被傳情人</th>
+				<th style="background-color: #6b6ac5; color: white; font-size: 25px; font-weight: bolder;">刪除</th>
+			</tr>
+		</table>
+		<hr>
+		<a href target="_top" id="top">移至頁首</a>
+		<address>
+			<sup>&copy;</sup>陳奕丞 <script language="JavaScript">document.write(document.lastModified + " " + "Last update")</script>
+		
+		</address>
+		<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase.js"></script>
+		<script>
+		
+		firebase.initializeApp(firebaseConfig);
+		firebase.analytics();
+		</script>
+		<script>
+			var user = firebase.auth().currentUser;
+			firebase.auth().onAuthStateChanged(function(user){
+				if (user) {
+					document.getElementById("userlogin").innerHTML = user.displayName+"登入";
+				}
+				else {
+					document.getElementById("userlogin").innerHTML = "無人登入";
+				}
+			});
+			function logout(){
+			
+				firebase.auth().signOut().then(function() {
+                alert('你已成功登出');
+				var user = firebase.auth().currentUser;
+				alert(user.displayName);
+
+            })
+        }
+		</script>
+		<script>
+			var db = firebase.database();
+			db.ref("單號到哪/單號到哪").once('value', function (snapshot) {
+						var data = snapshot.val();
+						function f2(){
+							for(var i = 1; i <= data; i++) {
+								(function(e) {
+									setTimeout(function() {
+										var db = firebase.database();
+										var path = "snapshot/"+e;
+										db.ref(`/${path}`).once('value', function (snapshot) {
+											var data = snapshot.val();
+											document.getElementById("whotable").innerHTML+= "<tr align=center style='font-size: 25px; font-weight: bolder;'><td>"+e+"</td><td>"+data.傳情人+"</td><td>"+data.商品+"</td><td>"+data.想說的話+"</td><td>"+data.被傳情人+"</td><td>"+"<button onclick='deletedata("+e+")'>刪除</button>"+"</td></tr>"
+										});
+									}, 1000);
+								})(i);
+							}
+						}
+						f2();
+					});
+			function deletedata(kk){
+				alert("刪除囉");
+				
+				var path = "snapshot/"+kk;
+				db.ref(`/${path}`).once('value', function (snapshot) {
+					var data = snapshot.val();
+					if(data.商品=="a"){
+						db.ref("amount/a").once('value', function (snapshot) {
+							var data = snapshot.val();
+							data = data - 1;
+							db.ref("/amount").update({
+								a: data
+							});
+						});
+						var path = "snapshot/"+kk;
+						db.ref(`/${path}`).remove();
+						
+					}
+					else if(data.商品=="b"){
+						db.ref("amount/b").once('value', function (snapshot) {
+							var data = snapshot.val();
+							data = data - 1;
+							db.ref("/amount").update({
+								b: data
+							});
+						});
+						var path = "snapshot/"+kk;
+						db.ref(`/${path}`).remove();
+						
+					}
+					else if(data.商品=="c"){
+						db.ref("amount/c").once('value', function (snapshot) {
+							var data = snapshot.val();
+							data = data - 1;
+							db.ref("/amount").update({
+								c: data
+							});
+						});
+						var path = "snapshot/"+kk;
+						db.ref(`/${path}`).remove();
+						
+					}
+					else if(data.商品=="d"){
+						db.ref("amount/d").once('value', function (snapshot) {
+							var data = snapshot.val();
+							data = data - 1;
+							db.ref("/amount").update({
+								d: data
+							});
+						});
+						var path = "snapshot/"+kk;
+						db.ref(`/${path}`).remove();
+						
+					}
+					else if(data.商品=="e"){
+						db.ref("amount/e").once('value', function (snapshot) {
+							var data = snapshot.val();
+							data = data - 1;
+							db.ref("/amount").update({
+								e: data
+							});
+						});
+						var path = "snapshot/"+kk;
+						db.ref(`/${path}`).remove();
+						
+					}
+					else if(data.商品=="f"){
+						db.ref("amount/f").once('value', function (snapshot) {
+							var data = snapshot.val();
+							data = data - 1;
+							db.ref("/amount").update({
+								f: data
+							});
+						});
+						var path = "snapshot/"+kk;
+						db.ref(`/${path}`).remove();
+						
+					}
+					else if(data.商品=="g"){
+						db.ref("amount/g").once('value', function (snapshot) {
+							var data = snapshot.val();
+							data = data - 1;
+							db.ref("/amount").update({
+								g: data
+							});
+						});
+						var path = "snapshot/"+kk;
+						db.ref(`/${path}`).remove();
+						
+					}
+					else if(data.商品=="h"){
+						db.ref("amount/h").once('value', function (snapshot) {
+							var data = snapshot.val();
+							data = data - 1;
+							db.ref("/amount").update({
+								h: data
+							});
+						});
+						var path = "snapshot/"+kk;
+						db.ref(`/${path}`).remove();
+						
+					}
+				});	
+				
+				
+				
+
+
+
+
+
+				
+			}
+		</script>
+	</body>
+</html>
